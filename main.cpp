@@ -1,38 +1,23 @@
 #include <iostream>
-#include <string>
+#include <fstream>
+#include <vector>
 
+int main() {
+    std::ofstream fout;
+    fout.open("palindrome.txt");
+    std::ofstream fout2;
+    fout.open("noPalindrome.txt");
 
-using namespace std;
-
-
-bool isPalindrome(string str){
-
-
-
-    for(int i = 0; i <= str.length()-1; i++){
-        if(str[i] != str[str.length()-1-i]){
-            return false;
-        }else {
-            return true;
-        }
+    if(!fout.is_open()){
+        std::cout << "Error!";
     }
-}
 
-main(){
 
-    string text;
+    if(!fout2.is_open()){
+        std::cout << "Error!";
+    }
 
-    do{
-        cout << "Enter some Text: " << endl;
-        cin >> text;
-        if(isPalindrome(text)){
-            cout << "The text is a palindrome" << endl;
-        }
-        else{
-            cout << "The text is not a palindrome" << endl;
-        }
-
-    }while(text != "Q");
-
+    fout.close();
+    fout2.close();
     return 0;
 }
